@@ -1,5 +1,7 @@
 @echo off
-Start-Process powershell -Verb runAs
+:: The-ring
+:: creado por vertigo85
+:: sitio web: www.honeypot.es
 SETLOCAL 
 :principal
 echo Bienvenido a configurator
