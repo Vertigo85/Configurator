@@ -46,7 +46,6 @@ ipconfig
 goto red
 :wifi
 netsh wlan show networks
-
 set /p name= introduce el nombre de la red
 set /p ssid= introduce el ssid
 set /p interface= introduce el interfaz
@@ -73,7 +72,6 @@ echo 7: instalar herramientas de mantenimiento
 echo 8: instalar aplicacion especificando un nombre
 echo 9: atras
 choice /m "seleccione una opcion" /c:1234567890  
-
 if errorlevel 9 goto principal
 if errorlevel 8 goto especifico
 if errorlevel 7 goto mantenimiento
@@ -124,10 +122,26 @@ start aikoncwd-win10-script.vbs
 del aikoncwd-win10-script.vbs
 go to principal
 :usuarios
-setlocal EnableDelayedExpansion
+choice
+echo 1: Crear usuario
+echo 2: Crear usuarios mediante archivo
+echo 3: Borrar usuarios mediante archivo
+echo 4: Atras
+choice /c:1234 /m "Seleccione una opcion" 
+if errorlevel 4 goto usuarios
+if errorlevel 3 goto borrar
+if errorlevel 2 goto crear
+if errorlevel 1 goto crea
+:crea
+set /p usuario=¿cual va a ser su usuario?
+set /P password=¿cual es su contraseña?
+net user /add %usuario% %password%
+goto usuarios
+:crear
+:borrar
+:usuarios
 :liberar
 dism /online /cleanup-image /spsuperseded
-
 :seguridad
 set /p copia= ¿en que unidad deseas guardar tu copia de seguridad?
 if %copia% 
