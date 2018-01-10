@@ -120,7 +120,7 @@ powershell "Expand-Archive -Path master.zip -DestinationPath %CD%"
 del master.zip
 start aikoncwd-win10-script.vbs
 del aikoncwd-win10-script.vbs
-go to principal
+goto principal
 :usuarios
 choice
 echo 1: Crear usuario
