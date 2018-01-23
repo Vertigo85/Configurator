@@ -2,7 +2,7 @@
 :: The-ring
 :: creado por vertigo85
 :: sitio web: www.honeypot.es
-                                     
+echo                                     
 echo   *   )   )                           
 echo ` )  /(( /(   (    (  (        (  (   
 echo  ( )(_))\()) ))\   )( )\  (    )\))(  
@@ -11,6 +11,7 @@ echo |_   _| |(_|_))    ((_|_)_(_/( (()(_)
 echo   | | | ' \/ -_)  | '_| | ' \)) _` |  
 echo   |_| |_||_\___|  |_| |_|_||_|\__, |  
 echo                               |___/   
+echo
 SETLOCAL 
 :principal
 echo Bienvenido a configurator
