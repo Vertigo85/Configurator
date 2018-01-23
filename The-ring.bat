@@ -2,6 +2,15 @@
 :: The-ring
 :: creado por vertigo85
 :: sitio web: www.honeypot.es
+                                     
+echo   *   )   )                           
+echo ` )  /(( /(   (    (  (        (  (   
+echo  ( )(_))\()) ))\   )( )\  (    )\))(  
+echo (_(_()|(_)\ /((_) (()((_) )\ )((_))\  
+echo |_   _| |(_|_))    ((_|_)_(_/( (()(_) 
+echo   | | | ' \/ -_)  | '_| | ' \)) _` |  
+echo   |_| |_||_\___|  |_| |_|_||_|\__, |  
+echo                               |___/   
 SETLOCAL 
 :principal
 echo Bienvenido a configurator
@@ -57,7 +66,12 @@ netsh
 ::salud wifi
 Netsh WLAN show WLANreport
 :configuracion
-netsh
+set /p interface=indica el nombre de la interface
+set /p iptrabajo=escriba static o dhcp dependiendo de si quieres una ip estatica o automatica
+set /p direccionip=indica una direccion ip
+set /p subred=indica una subred
+set /p gateway=indica una puerta de enlace
+netsh interface ipv4 set address "!interface!" !iptrabajo! !subred! !gateway!
 :intalacion
 echo si no tienes chocolatey instalado el script no funcionara, se recomienda asi que pulses la opcion 1
 echo menu instalacion
@@ -95,15 +109,45 @@ goto instalacion
 choco install gimp inkscape -y
 goto instalacion
 :musica
+
+choice /m "seleccione una opcion" /c:1234567890  
+if errorlevel 4 goto  
+if errorlevel 3 goto 
+if errorlevel 2 goto 
+if errorlevel 1 goto 
+if errorlevel 0 goto 
 choco install foobar
+choco install winamp
 goto instalacion
 :video
+echo 0: VLC
+echo 1: MPC-BE
+choice /m "seleccione una opcion" /c:1234567890  
+if errorlevel 4 goto  
+if errorlevel 3 goto 
+if errorlevel 2 goto 
+if errorlevel 1 goto 
+if errorlevel 0 goto 
+
 choco install mpc-be
 choco install vlc
 goto instalacion
 :desarrollo
+echo 0: notepad++ 
+echo 1: xampp
+echo 2: brackets
+echo 3:
+choice /m "seleccione una opcion" /c:1234567890  
+if errorlevel 4 goto  
+if errorlevel 3 goto 
+if errorlevel 2 goto 
+if errorlevel 1 goto 
+if errorlevel 0 goto 
+:brackets
 choco install brackets
+:xampp
 choco install Bitnami-XAMPP
+:np
 choco install notepadplusplus
 choco install
 goto instalacion
